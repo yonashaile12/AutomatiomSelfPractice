@@ -10,8 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class InterviewPractice {
 
-    @Test
-   public void test1() {
+    public static void main(String[] args) {
+        Assert.assertTrue(InterviewPractice.test1().contains("selenium"));
+    }
+
+   public static String test1() {
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://www.google.com");
@@ -19,10 +23,6 @@ public class InterviewPractice {
         driver.findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
         String actual = driver.getCurrentUrl().toLowerCase();
 
-        String expected = "selenium";
-
-        Assert.assertTrue(actual.contains( expected));
-
-
+        return actual;
     }
 }
